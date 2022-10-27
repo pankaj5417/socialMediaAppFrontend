@@ -12,7 +12,7 @@ const Signup_AccountCreated = ({navigation}) => {
     </TouchableOpacity>
     <Text style={formCss.formHead2}>Account created Successfully</Text> 
     
-    <Text style={formCss.formbtn} onPress={()=>navigation.navigate("MainPage")}>Let's Go</Text>
+    <Text style={formCss.formbtn} onPress={()=>navigation.navigate("Login")}>Let's Go</Text>
 
 
   </View>

@@ -1,9 +1,43 @@
-import React from 'react'
-import { StyleSheet, Text, View ,TouchableOpacity,Image,TextInput} from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View ,TouchableOpacity,Image,TextInput, ActivityIndicator} from 'react-native'
 import { formCss } from '../../../commonCss/formCss'
 import { pageCss } from '../../../commonCss/pageCss'
 
-const Signup_ChoosePassword = ({navigation}) => {
+const Signup_ChoosePassword = ({navigation,route}) => {
+
+  const {email,username}=route.params 
+
+  const [password,setPassword]=useState("")
+  const [confirmPassword,setConfirmPassword]=useState("")
+  const [loading,setLoading]=useState(false)
+
+  const handlePassword=async()=>{
+    if(password==""||confirmPassword==""){
+alert("Please enter Password")
+    }else if(password!=confirmPassword){
+      alert("Password does not match")
+    }else{
+      setLoading(true)
+    const res=  await fetch("http://localhost:8000/auth/signup",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({email,username,password})
+      })
+      const data=await res.json()
+      if(data.message=="User Registered successfully"){
+          setLoading(false)
+          alert(data.message)
+        navigation.navigate("Signup_AccountCreated") 
+      }else{
+        setLoading(false)
+        alert("Please try again")
+      }
+    }
+   // navigation.navigate("Signup_AccountCreated")
+  }
+   
   return (
     <View style={pageCss.containerFull}>
       <TouchableOpacity onPress={()=>navigation.navigate("Signup_ChooseUsername")} style={pageCss.goback}>
@@ -11,12 +45,15 @@ const Signup_ChoosePassword = ({navigation}) => {
         <Text style={{color:"gray",fontSize:16}}> Go back</Text>
       </TouchableOpacity>
       <Text style={formCss.formHead3}>Choose Password</Text>
-      <TextInput placeholder='Enter password' style={formCss.formInput} secureTextEntry={true} />
-      <TextInput placeholder='Re-Enter password' style={formCss.formInput} secureTextEntry={true} />
+      <TextInput placeholder='Enter password' style={formCss.formInput} secureTextEntry={true} onChangeText={(text)=>setPassword(text)}/>
+      <TextInput placeholder='Re-Enter password' style={formCss.formInput} secureTextEntry={true} onChangeText={(text)=>setConfirmPassword(text)}/>
 
 
-      <Text style={formCss.formbtn} onPress={()=>navigation.navigate("Signup_AccountCreated")}>Next</Text>
-
+{
+  loading?<ActivityIndicator/>:
+  
+  <Text style={formCss.formbtn} onPress={()=>handlePassword()}>Next</Text>
+}
 
     </View>
   )
