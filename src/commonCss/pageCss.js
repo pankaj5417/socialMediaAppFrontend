@@ -35,7 +35,7 @@ export const pageCss={
     },
     icons1:{
         color:"white",
-        fontSize:30
+        fontSize:28
 
     },
     goback:{

@@ -8,28 +8,28 @@ import  Ionicons  from 'react-native-vector-icons/Ionicons';
 import TopNavbar from '../../components/TopNavbar'
 import FollowersRandomPosts from '../../components/FollowersRandomPosts'
 
-const MainPage = ({navigation,route}) => {
-  //const {data}=route.params
-  //console.log("userdata",data)
+
+const UserProfilePage = ({navigation}) => {
   return (
     <View style={styles.container}>
 
-      <StatusBar />
-     
-      <TopNavbar navigation={navigation} page={"MainPage"}/>
-      <FollowersRandomPosts/>
-      <BottomNavbar navigation={navigation} page={"MainPage"}/>
-    </View>
+    <StatusBar />
+   
+    <TopNavbar navigation={navigation}/>
+    <FollowersRandomPosts/>
+    <Text style={formCss.formHead}>Your Profile</Text>
+    <BottomNavbar navigation={navigation} page={"UserProfilePage"}/>
+  </View>
   )
 }
 
-export default MainPage
+export default UserProfilePage
 
 const styles = StyleSheet.create({
-  container:{
-    width:"100%",
-    height:"100%",
-    backgroundColor:"black",
-    paddingVertical:50
-  }
-})
+    container:{
+      width:"100%",
+      height:"100%",
+      backgroundColor:"black",
+      paddingVertical:50
+    }
+  })

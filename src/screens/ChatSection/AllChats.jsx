@@ -82,7 +82,7 @@ const AllChats = ({navigation}) => {
           })
           .map((chat, index) => (
             <View>
-              <ChatCard key={index} chat={chat} />
+              <ChatCard key={chat.username} chat={chat} />
             </View>
           ))}
       </View>
