@@ -2,6 +2,7 @@ import { StyleSheet, Text, View ,TextInput, TouchableOpacity,Image, ActivityIndi
 import React, { useState } from 'react'
 import { formCss } from '../../../commonCss/formCss'
 import { pageCss } from '../../../commonCss/pageCss'
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const Signup_EnterEmail = ({navigation}) => {
 
@@ -44,7 +45,8 @@ const Signup_EnterEmail = ({navigation}) => {
   return (
     <View style={pageCss.containerFull}>
       <TouchableOpacity onPress={()=>navigation.navigate("Login")} style={pageCss.goback}>
-        <Image style={{backgroundColor:"white",color:"white"}} source={{uri:"https://img.favpng.com/21/6/21/computer-icons-button-clip-art-png-favpng-U1uZ9xhfAh7VMaDDsG1vwH8Z0_t.jpg"}}/>
+        {/* <Image style={{backgroundColor:"white",color:"white"}} source={{uri:"https://img.favpng.com/21/6/21/computer-icons-button-clip-art-png-favpng-U1uZ9xhfAh7VMaDDsG1vwH8Z0_t.jpg"}}/> */}
+        <AntDesign name="leftsquareo" size={24} color="black" style={{color:"white"}}/>
         <Text style={{color:"gray",fontSize:16}}> Go back</Text>
       </TouchableOpacity>
       <Text style={formCss.formHead2}>Create a new account</Text>

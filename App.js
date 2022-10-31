@@ -18,6 +18,7 @@ import AllChats from './src/screens/ChatSection/AllChats';
 import SearchUserPage from './src/screens/MainPage/SearchUserPage';
 import NotificationPage from './src/screens/MainPage/NotificationPage';
 import UserProfilePage from './src/screens/Profile/UserProfilePage';
+import Setting from './src/screens/settings/Setting';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -89,6 +90,11 @@ const App = () => {
           <Stack.Screen
             name="UserProfilePage"
             component={UserProfilePage}
+            options={{animation: 'slide_from_left'}}
+          />
+           <Stack.Screen
+            name="Setting"
+            component={Setting}
             options={{animation: 'slide_from_left'}}
           />
         </Stack.Navigator>

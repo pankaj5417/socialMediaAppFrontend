@@ -12,11 +12,21 @@ const TopNavbar = ({navigation,page}) => {
 
       {page === 'MainPage' && (
         <Ionicons
-          name="chatbubble-outline"
+          name="chatbubbles"
           size={24}
           color="white"
           style={pageCss.icons1}
           onPress={() => navigation.navigate('AllChats')}
+        />
+      )}
+
+{page === 'UserProfilePage' && (
+        <Ionicons
+          name="settings-sharp"
+          size={24}
+          color="white"
+          style={pageCss.icons1}
+          onPress={() => navigation.navigate('Setting')}
         />
       )}
     </View>
@@ -32,10 +42,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingVertical: 10,
+    paddingRight:10,
     position: 'absolute',
     top: 0,
 
     zIndex: 200,
-    backgroundColor: '#111111',
+    backgroundColor:'#111111',
   },
 });

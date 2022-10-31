@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {ActivityIndicator, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {ActivityIndicator, Image, StyleSheet, Text,AsyncStorage, TextInput, View} from 'react-native';
 import logo from '../../../../assets/logo.png';
 import {formCss} from '../../../commonCss/formCss';
 import {pageCss} from '../../../commonCss/pageCss';
@@ -26,6 +26,7 @@ const Login = ({navigation}) => {
 
         if(data.message==="Signed in successfully"){
           setLoading(false)
+          await AsyncStorage.setItem("user",JSON.stringify(data))
           alert(data.message)
           navigation.navigate('MainPage',{data})
           
@@ -43,7 +44,7 @@ const Login = ({navigation}) => {
   }
   return (
     <View style={pageCss.containerFull}>
-      <Image source={logo} style={pageCss.logo1} />
+      {/* <Image source={logo} style={pageCss.logo1} /> */}
       <Text style={formCss.formHead}>Login</Text>
       <TextInput placeholder="Enter your Email" style={formCss.formInput}     
       onChangeText={(text)=>setEmail(text)}

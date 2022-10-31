@@ -2,6 +2,8 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {formCss} from '../commonCss/formCss';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {pageCss} from '../commonCss/pageCss';
 
 const BottomNavbar = ({navigation,page}) => {
@@ -40,18 +42,20 @@ const BottomNavbar = ({navigation,page}) => {
      
 {
   page==="NotificationPage"?
-  <FontAwesome
+  <Ionicons name="notifications-sharp" size={24} color="black"style={styles.activeIcons1} onPress={()=>navigation.navigate("NotificationPage")}/>
+//   <FontAwesome
  
-  color="black"
-  name="heart"
-  style={styles.activeIcons1}
-  onPress={()=>navigation.navigate("NotificationPage")}
+//   color="black"
+//   name=""
+//   style={styles.activeIcons1}
+//   onPress={()=>navigation.navigate("NotificationPage")}
 
-/>:
- <FontAwesome
+// />
+:
+ <Ionicons
 
  color="black"
- name="heart"
+ name="notifications-sharp"
  style={pageCss.icons1}
  onPress={()=>navigation.navigate("NotificationPage")}
 

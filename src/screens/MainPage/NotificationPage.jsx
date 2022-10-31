@@ -16,9 +16,21 @@ const NotificationPage = ({navigation}) => {
       <StatusBar />
      
       <TopNavbar navigation={navigation}/>
-      <Text style={formCss.formHead}>Notifications</Text>
+      <View style={styles.c1}>
+        <View style={styles.notification}>
+      <Text style={formCss.formHead2}>Some Notifications</Text>
 
-      <FollowersRandomPosts/>
+        </View>
+        <View style={styles.notification}>
+      <Text style={formCss.formHead2}>Some Notifications</Text>
+
+        </View>
+        <View style={styles.notification}>
+      <Text style={formCss.formHead2}>Some Notifications</Text>
+
+        </View>
+      </View>
+
       <BottomNavbar navigation={navigation} page={"NotificationPage"}/>
     </View>
   )
@@ -32,5 +44,17 @@ const styles = StyleSheet.create({
       height:"100%",
       backgroundColor:"black",
       paddingVertical:50
+    },
+    notification:{
+      width:"100%",
+      height:50,
+      backgroundColor:"#111111",
+      marginTop:10,
+
+    },
+    c1:{
+      width:"100%",
+      height:"100%",
+      alignItems:"center"
     }
   })
